@@ -1,22 +1,66 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crypto Spotter - Single Page Application</title>
     <link rel="stylesheet" href="style.css">
+    <title>Crypto Spotter Website | JavaScript Project</title>
 </head>
+
 <body>
-    <div class="container">
-        <h1>Crypto Spotter Application</h1>
-        <p>Enter the name of a cryptocurrency:</p>
-        <input type="text" id="coinInput" placeholder="Enter coin name...">
-        <button id="searchButton">Search</button>
-        <div id="content"></div>
-        <div id="error-message"></div> 
-    </div>
+    <header>
+        <nav>
+            <div class="logo">
+                <p class="logo-title">Crypto Spotter App</p>
+            </div>
+            <div class="burger-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Buy Crypto</a></li>
+                <li><a href="#">Trade</a></li>
+                <li><a href="#">Blogs</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
+        <div class="inner-container">
+            <div class="left-section">
+                <p class="tag-line">Safe and Secure Crypto Service</p>
+                <h1 class="hero-heading">The Best <span>Crypto</span> <br> Transaction</h1>
+                <p class="sub-heading">A Great Company to Work With</p>
+                <div class="btn-group">
+                    <button><i class="fa-solid fa-play"></i> How It Works</button>
+                
+                </div>
+            </div>
+            <div class="right-section">
+                <img src="cry.png" alt="bitcoin-img">
+            </div>
+        </div>
+    </section>
+
+    <section class="crypto-section">
+        <div class="container">
+            <p>Enter cryptocurrency name: </p>
+            <input type="text" id="coinInput" placeholder="Enter coin name...">
+            <button id="searchButton">Search</button>
+            <div id="content"></div>
+            <div id="error-message"></div>
+        </div>
+    </section>
+
     <script src="script.js"></script>
 </body>
+
 </html>
 
 

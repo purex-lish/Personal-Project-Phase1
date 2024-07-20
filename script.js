@@ -1,12 +1,10 @@
-//This line waits for the HTML document to be completely loaded before executing the enclosed code.
+ //This line waits for the HTML document to be completely loaded before executing the enclosed code.
 document.addEventListener('DOMContentLoaded', () => {
     const contentDiv = document.getElementById('content');
     const coinInput = document.getElementById('coinInput');
     const searchButton = document.getElementById('searchButton');
     const apiUrl = 'https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd';
-
-//fetches cryptocurrency data from the CoinGecko API, and dynamically renders the results.
-
+//fetch crypto data from API
     function fetchDataAndRender() {
         const searchTerm = coinInput.value.trim().toLowerCase();
 
@@ -14,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
             contentDiv.innerHTML = `<p>Please enter a coin name.</p>`;
             return;
         }
-//initiates a network request to fetch data.
+//initiate a network to request to fetch dara
         fetch(apiUrl)
             .then(response => {
                 if (!response.ok) {
@@ -22,15 +20,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
                 return response.json();
             })
+//cointains coins that matches users search
             .then(data => {
                 const filteredCoins = data.filter(coin => coin.name.toLowerCase().includes(searchTerm));
 
                 if (filteredCoins.length === 0) {
                     contentDiv.innerHTML = `<p>No results found for "${searchTerm}". Please try another coin.</p>`;
-                    document.getElementById('error-message').innerHTML = ''; 
+                    document.getElementById('error-message').innerHTML = '';
                 } else {
-                    contentDiv.innerHTML = ''; 
-                    document.getElementById('error-message').innerHTML = ''; 
+                    contentDiv.innerHTML = '';
+                    document.getElementById('error-message').innerHTML = '';
 
                     filteredCoins.forEach(coin => {
                         const coinElement = document.createElement('div');
@@ -51,13 +50,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     });
                 }
             })
+//gives error message if no result found
             .catch(error => {
                 console.error('Error fetching data:', error);
-                contentDiv.innerHTML = ''; // Clear previous content on error
+                contentDiv.innerHTML = '';
                 document.getElementById('error-message').innerHTML = `<div id="error-message">Oops..Error fetching data. Please try again later.</div>`;
             });
     }
-//fetches additional details about a specific cryptocurrency 
+//Gets additional details about specific crypto currency
     function toggleDetails(coinId) {
         const detailsDiv = document.getElementById(`coin-details-${coinId}`);
         if (detailsDiv.innerHTML.trim() === '') {
@@ -83,13 +83,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     detailsDiv.innerHTML = `<div id="error-message">Oops..Error fetching coin details. Please try again later.</div>`;
                 });
         } else {
-            detailsDiv.innerHTML = ''; 
+            detailsDiv.innerHTML = '';
         }
     }
 
-    searchButton.addEventListener('click', () => {
-        fetchDataAndRender();
-    });
-
+    searchButton.addEventListener('click', fetchDataAndRender);
 });
 
