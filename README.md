@@ -1,5 +1,5 @@
-# Personal-Project-Phase1
-Crypto Spotter - Cryptocurrency Search Application
+# Personal-Project-Phase1 
+Crypto Spotter - Cryptocurrency Search Application. The link to the Web App https://functionsjson.netlify.app/
 Crypto Spotter is a single-page web application that allows users to search for information about cryptocurrencies using the CoinGecko API.
 
 Features
